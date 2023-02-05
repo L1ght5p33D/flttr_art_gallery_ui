@@ -60,3 +60,70 @@ class CarouselItem extends StatelessWidget {
     );
   }
 }
+
+class ReactionsWidget extends StatelessWidget {
+   ReactionsWidget({Key? key, required this.users}) : super(key: key);
+
+  List users;
+  @override
+  Widget build(BuildContext context) {
+
+    List<Widget>? positioned_reaction_profile_pics;
+
+    int pic_idx = 0;
+    double ruser_pos_inc = ss.width * .03;
+
+    users.forEach((user) {
+      if (pic_idx <3){
+      positioned_reaction_profile_pics!.add(
+        Positioned(
+            left: pic_idx * ruser_pos_inc,
+            child: ClipRRect(
+            borderRadius: BorderRadius.circular(ss.width * .03),
+            child:Container(
+                width: ss.width * .06,
+                child:
+                  Image.asset(user_profilepic_data[user],
+                              width: ss.width * .06,
+                              height: ss.width * .06,
+                              fit: BoxFit.contain,
+                  )
+            )
+        ))
+      );
+      pic_idx +=1;
+      }
+      if (pic_idx == 3){
+        positioned_reaction_profile_pics!.add(
+            Positioned(
+                left: pic_idx * ruser_pos_inc,
+                child: ClipRRect(
+                    borderRadius: BorderRadius.circular(ss.width * .03),
+                    child:Container(
+                        width: ss.width * .06,
+                        child:
+                            Stack(children:[
+                        Image.asset(user_profilepic_data[user],
+                          width: ss.width * .06,
+                          height: ss.width * .06,
+                          fit: BoxFit.contain,
+                        ),
+                          Text("+" + users.length.toString())
+                        ])
+                    )
+                ))
+        );
+        pic_idx +=1;
+      }
+    });
+
+    return Container(
+      width: ss.width * .35,
+      child: Row(children: [
+        Stack(children: positioned_reaction_profile_pics!,),
+        Text("Reactions")
+      ],),
+    );
+  }
+}
+
