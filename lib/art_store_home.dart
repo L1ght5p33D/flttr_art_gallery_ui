@@ -62,8 +62,9 @@ class _ArtStoreHomeState extends State<ArtStoreHome> {
          options: CarouselOptions(
            autoPlay: false,
            enlargeCenterPage: true,
+           enlargeFactor: .3,
            padEnds: false,
-           // viewportFraction: 0.9,
+           viewportFraction: 0.67,
            // aspectRatio: .5,
             height: ss.height *.66,
            initialPage: 1,

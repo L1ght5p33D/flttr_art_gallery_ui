@@ -8,39 +8,42 @@ class CarouselItem extends StatelessWidget {
     required this.art_store_item }) : super(key: key);
     Map art_store_item;
 
-
+  double carousel_item_width = 0.0;
 
   @override
   Widget build(BuildContext context) {
 
+      carousel_item_width = ss.width*.67;
+
     return ClipRRect(
         borderRadius: BorderRadius.circular(ss.width * .03),
     child: Container(
-        height: ss.height * .76,
-        width:  ss.width * .76,
+        height: carousel_item_width,
+        width:  ss.width * .85,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(ss.width*.1)
         ),
         child: Column(
           children: [
-            Container(
-              height: ss.height * .46,
-                width: ss.width * .76,
+            Flexible(child:
+            ClipRRect(
+              borderRadius: BorderRadius.circular(ss.width * .03),
               child:
-            Image.asset(art_store_item["image_path"],
+              Image.asset(art_store_item["image_path"],
                         height: ss.height * .4,
+                         width:  carousel_item_width,
                         fit: BoxFit.cover,
-            )),
+            ))),
             Container(
                 height: ss.height * .2,
-                width: ss.width * .76,
+                width: carousel_item_width,
                 child:
             Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
             Container(
             height: ss.height * .2,
-                width: ss.width * .6,
+                width: ss.width * .5,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -52,8 +55,9 @@ class CarouselItem extends StatelessWidget {
                 ReactionsWidget(users:art_store_item["reaction_users"])
               ],)),
 
-              MaterialButton(onPressed: (){},
-                  child:
+              // MaterialButton(
+              //     onPressed: (){},
+              //     child:
                   Container(
                     width: ss.width * .16,
                     height: ss.width * .16,
@@ -66,8 +70,9 @@ class CarouselItem extends StatelessWidget {
                         bottomRight: Radius.circular(ss.width * .05),
                          ),
                     ),
-                    child:Center(child:Icon(Icons.shopping_basket_outlined))
-                  )
+                    child:Icon(Icons.shopping_basket_outlined,
+                                            size:ss.width*.05)
+                  // )
               )
 
             ]),)
@@ -136,7 +141,7 @@ class ReactionsWidget extends StatelessWidget {
     });
 
     return Container(
-      width: ss.width * .6,
+      width: ss.width * .5,
       height: ss.width * .2,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -147,7 +152,7 @@ class ReactionsWidget extends StatelessWidget {
         child:
         Stack(children: positioned_reaction_profile_pics,)),
       Padding(
-        padding: EdgeInsets.only(bottom: ss.width*.05)
+        padding: EdgeInsets.only(bottom: ss.width*.07)
           ,child:Text("Reactions",
                     style: TextStyle(fontSize: ss.width*.03)))
       ],),
