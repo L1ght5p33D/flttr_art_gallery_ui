@@ -55,14 +55,16 @@ class CarouselItem extends StatelessWidget {
                 ReactionsWidget(users:art_store_item["reaction_users"])
               ],)),
 
-              // MaterialButton(
-              //     onPressed: (){},
-              //     child:
+              MaterialButton(
+                  onPressed: (){},
+                  minWidth: ss.width * .16,
+                  padding: EdgeInsets.all(0.0),
+                  child:
                   Container(
                     width: ss.width * .16,
                     height: ss.width * .16,
                     decoration: BoxDecoration(
-                      color: Colors.deepPurpleAccent[100],
+                      color:g_accent_color,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.elliptical(ss.width * .08, ss.width * .07),
                         topRight: Radius.circular(ss.width * .05),
@@ -72,7 +74,7 @@ class CarouselItem extends StatelessWidget {
                     ),
                     child:Icon(Icons.shopping_basket_outlined,
                                             size:ss.width*.05)
-                  // )
+                  )
               )
 
             ]),)
@@ -92,7 +94,10 @@ class ReactionsWidget extends StatelessWidget {
     List<Widget> positioned_reaction_profile_pics = [];
 
     int pic_idx = 0;
-    double ruser_pos_inc = ss.width * .03;
+
+    double react_pp_height = ss.width * .1;
+
+    double ruser_pos_inc = react_pp_height * .4;
 
     users.forEach((user) {
       if (pic_idx <3){
@@ -101,14 +106,14 @@ class ReactionsWidget extends StatelessWidget {
           top: ss.width*.03,
             left: pic_idx * ruser_pos_inc,
             child: ClipRRect(
-            borderRadius: BorderRadius.circular(ss.width * .03),
+            borderRadius: BorderRadius.circular(react_pp_height / 2),
             child:Container(
-                width: ss.width * .06,
+                width: react_pp_height,
                 child:
                   Image.asset(user_profilepic_data[user],
-                              width: ss.width * .06,
-                              height: ss.width * .06,
-                              fit: BoxFit.contain,
+                              width: react_pp_height,
+                              height: react_pp_height,
+                              fit: BoxFit.cover,
                   )
             )
         ))
@@ -121,17 +126,24 @@ class ReactionsWidget extends StatelessWidget {
                 top: ss.width*.03,
                 left: pic_idx * ruser_pos_inc,
                 child: ClipRRect(
-                    borderRadius: BorderRadius.circular(ss.width * .03),
+                    borderRadius: BorderRadius.circular(react_pp_height / 2),
                     child:Container(
-                        width: ss.width * .06,
+                        width: react_pp_height,
+                        height: react_pp_height,
                         child:
                             Stack(children:[
                         Image.asset(user_profilepic_data[user],
-                          width: ss.width * .06,
-                          height: ss.width * .06,
-                          fit: BoxFit.contain,
+                          width: react_pp_height,
+                          height: react_pp_height,
+                          fit: BoxFit.cover,
                         ),
-                          Text("+" + users.length.toString())
+                          Positioned(
+                              top: react_pp_height * .3,
+                              left: react_pp_height * .3 ,
+                              child:Text("+" + users.length.toString(),
+                                style: TextStyle(color: Colors.white,
+                                                  fontSize: react_pp_height * .3,
+                                                  fontWeight: FontWeight.w600),))
                         ])
                     )
                 ))
@@ -152,7 +164,7 @@ class ReactionsWidget extends StatelessWidget {
         child:
         Stack(children: positioned_reaction_profile_pics,)),
       Padding(
-        padding: EdgeInsets.only(bottom: ss.width*.07)
+        padding: EdgeInsets.only(bottom: react_pp_height * .5)
           ,child:Text("Reactions",
                     style: TextStyle(fontSize: ss.width*.03)))
       ],),

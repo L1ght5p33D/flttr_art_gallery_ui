@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 Size ss = Size(0,0);
 
+Color g_accent_color =  Colors.deepPurpleAccent[100]!;
+
 List<Map> art_store_items = [
   {
     "main_title": "Universe",
