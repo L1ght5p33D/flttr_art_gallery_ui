@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:art_store_ui/as_globals.dart';
-
+import 'package:art_store_ui/carousel_item.dart';
 
 class ArtStoreHome extends StatefulWidget {
   const ArtStoreHome({Key? key}) : super(key: key);
@@ -13,7 +13,12 @@ class ArtStoreHome extends StatefulWidget {
 class _ArtStoreHomeState extends State<ArtStoreHome> {
 
   // CarouselController buttonCarouselController = CarouselController();
-  List<Widget> carousel_items = [];
+  List<Widget> carousel_items = [
+    CarouselItem(art_item_1),
+    CarouselItem(art_item_2),
+    CarouselItem(art_item_3),
+    CarouselItem(art_item_4)
+  ];
   @override
   Widget build(BuildContext context) {
     ss = MediaQuery.of(context).size;

@@ -5,18 +5,14 @@ import 'package:art_store_ui/as_globals.dart';
 
 class CarouselItem extends StatelessWidget {
    CarouselItem({Key? key,
-    this.image_path:"",
-     this.main_title: "",
-    this.short_desc: "",
-      required this.reaction_users  }) : super(key: key);
+    required this.art_store_item }) : super(key: key);
+    Map art_store_item;
 
-   String image_path;
-  String main_title;
-  String short_desc;
-  List reaction_users;
+
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
         height: ss.height * .6,
         width:  ss.width * .6,
@@ -25,15 +21,15 @@ class CarouselItem extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Image.asset(image_path,
+            Image.asset(art_store_item["image_path"],
                         fit: BoxFit.cover,
             ),
 
             Row(children: [
               Column(children: [
-                Text(main_title),
-                Text(short_desc),
-                ReactionsWidget(users: reaction_users)
+                Text(art_store_item["main_title"]),
+                Text(art_store_item["short_desc"]),
+                ReactionsWidget(users:art_store_item[" reaction_users"])
               ],),
 
               MaterialButton(onPressed: (){},
