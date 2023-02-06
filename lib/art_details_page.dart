@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:art_store_ui/as_globals.dart';
-import 'package:flutter/rendering.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:flutter_expandable_text/flutter_expandable_text.dart';
+import 'package:art_store_ui/reactions_widget.dart';
+import 'package:art_store_ui/as_globals.dart';
 
 class ArtDetailsPage extends StatefulWidget {
    ArtDetailsPage({Key? key, required this.as_item}) : super(key: key);
@@ -155,7 +155,9 @@ class _ArtDetailsPageState extends State<ArtDetailsPage> {
           Container(
             width: ss.width ,
 
-      child: Row(children: [
+      child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
         ClipRRect(borderRadius: BorderRadius.all(Radius.circular(ss.width*.08),),
         child:Image.asset(widget.as_item["pp_path"],
                           width: ss.width*.16,
@@ -181,28 +183,55 @@ class _ArtDetailsPageState extends State<ArtDetailsPage> {
                                             fontWeight: FontWeight.w300),))
                   ],)),
 
-
-        Container(width: ss.width*.38,
-              decoration: BoxDecoration(
+        Container(width: ss.width*.27,
+                  height: ss.width*.14,
+            decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(ss.width*.055),
-                color: g_accent_color
+                border: Border.all(width: 1.0, color:g_accent_color)
+            ),
+            child:
+            MaterialButton(
+                onPressed: (){},
+                child:
+                Center(child:
+
+                  Text("+ Friend",
+                    style: TextStyle(color:g_accent_color),
+                  ),
+
+                )))
+                  ])),
+          Container(height: ss.width*.02,),
+          Container(
+            padding:EdgeInsets.only(left:ss.width*.01),
+            height: ss.height*.2,
+          child: Row(children: [
+          ReactionsWidget(users: widget.as_item["reaction_users"]),
+
+          Container(width: ss.width*.38,
+              height: ss.width*.14,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(ss.width*.055),
+                  color: g_accent_color
               ),
               child:
-                    MaterialButton(
-                      onPressed: (){},
-                      child:
-                      Center(child:
-                        Row(children: [
-                        Text("Buy Now",
-                              style: TextStyle(color:Colors.white),
-                        ),
-                        Icon(Icons.arrow_right,
-                          color:Colors.white
+              MaterialButton(
+                  onPressed: (){},
+                  child:
+                  Center(child:
+                  Row(children: [
+                    Text("Buy Now",
+                      style: TextStyle(color:Colors.white),
+                    ),
+                    Icon(Icons.arrow_right,
+                        color:Colors.white
 
-                        )
-                      ]),
-                    )))
-                  ]))
+                    )
+                  ]),
+                  )))
+
+        ],))
+
       ],)))
 
     ])
