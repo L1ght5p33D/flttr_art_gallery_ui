@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 
 Size ss = Size(0,0);
 
-Color g_accent_color =  Colors.deepPurpleAccent[100]!;
+// Color g_accent_color =  Colors.deepPurpleAccent[100]!;
+Color g_accent_color = Color(0Xffaaa7d9);
+
 Color g_icon_inactive_color = Colors.black54;
 
 List<Map> art_store_items = [

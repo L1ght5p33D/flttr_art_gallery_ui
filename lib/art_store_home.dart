@@ -45,21 +45,29 @@ class _ArtStoreHomeState extends State<ArtStoreHome> {
                       Flexible(child:Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
+                          Container(
+                              width:ss.width*.14,
+                              height: ss.width*.14,
+                              child:
                           IconButton(
                               onPressed: () {
                                 print("menu press");
                               },
                               icon: Icon(Icons.menu,
-                                          color: g_icon_inactive_color,)),
+                                          color: g_icon_inactive_color,))),
+            Container(
+                width:ss.width*.14,
+                height: ss.width*.14,
+                child:
                           IconButton(
                               onPressed: () {
                                 print("menu press");
                               },
                               icon: Icon(Icons.shopping_basket_outlined,
-                                          color: g_icon_inactive_color))
+                                          color: g_icon_inactive_color)))
                         ],
                       )),
-                      Padding(padding: EdgeInsets.all(ss.width*.06)),
+
                       Text(
                         "View our amazing collection!",
                         style: TextStyle(fontSize: ss.width * .07),
@@ -74,11 +82,14 @@ class _ArtStoreHomeState extends State<ArtStoreHome> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
+                          Padding(
+                              padding:EdgeInsets.only(bottom:ss.width*.02),
+                            child:
                           Text(
                             "Popular",
                             style: TextStyle(fontSize: ss.width * .05,
                                               fontWeight: FontWeight.w500),
-                          ),
+                          )),
                          const Text(
                             "See all",
                             style: TextStyle(
@@ -120,6 +131,9 @@ class _ArtStoreHomeState extends State<ArtStoreHome> {
                             gap: 2,
                             activeColor: Colors.white,
                             iconSize: 24,
+                            textStyle: TextStyle(fontSize: 12,
+                                                color: Colors.white
+                            ),
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 6, vertical: 9),
                             duration: const Duration(milliseconds: 400),
@@ -128,19 +142,23 @@ class _ArtStoreHomeState extends State<ArtStoreHome> {
                             tabs: const [
                               GButton(
                                 icon: LineIcons.home,
+                                gap:7,
                                 text: 'Home',
                               ),
                               GButton(
                                 icon: LineIcons.star,
+                                gap:7,
                                 text: 'Favorites',
                               ),
                                GButton(
                                 icon: Icons.notifications_none,
-                                text: 'Notifications',
+                                 gap:7,
+                                 text: 'Notifications',
                               ),
                                GButton(
                                 icon: LineIcons.user,
-                                text: 'Profile',
+                                 gap:7,
+                                 text: 'Profile',
                               ),
                             ],
                             selectedIndex: _selectedIndex,

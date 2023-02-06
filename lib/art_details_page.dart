@@ -98,7 +98,7 @@ class _ArtDetailsPageState extends State<ArtDetailsPage> {
                 paintStyle:  PaintingStyle.stroke,
                 strokeWidth:  1.5,
                 dotColor:  g_accent_color,
-                activeDotColor:  Colors.tealAccent[700]!
+                activeDotColor:  Colors.lightBlueAccent
           )
         ))),
       Padding(padding:EdgeInsets.all(ss.width*.02),
@@ -111,11 +111,21 @@ class _ArtDetailsPageState extends State<ArtDetailsPage> {
           mainAxisAlignment:MainAxisAlignment.spaceBetween,
           children:[
         Column(children:[
-      Container(child:Text(widget.as_item["main_title"])),
-        Container(child:Text(widget.as_item["artist"]))
+      Container(
+          width: ss.width*.7,
+          child:Text(widget.as_item["main_title"],
+        style: TextStyle(fontSize: ss.width*.05,
+            fontWeight: FontWeight.w500),)),
+        Container(
+            width: ss.width*.7,
+            child:Text(widget.as_item["artist"],
+          style: TextStyle(fontSize: ss.width*.04,
+              fontWeight: FontWeight.w400),))
         ]),
 
-        Container(child:Text(  "\$" + widget.as_item["price"]))
+        Container(
+            padding:EdgeInsets.all(ss.width*.04),
+            child:Text(  "\$" + widget.as_item["price"]))
       ]),
         Padding(padding:EdgeInsets.all(ss.width*.02)),
           Flexible(
@@ -160,9 +170,15 @@ class _ArtDetailsPageState extends State<ArtDetailsPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
+                        padding:EdgeInsets.only(left:ss.width*.02),
                         child:
                     Text(widget.as_item["artist"]),),
-                    Text(widget.as_item["num_arts"] + " contributions")
+          Container(
+            padding:EdgeInsets.only(left:ss.width*.01),
+            child:
+                    Text(widget.as_item["num_arts"] + " contributions",
+                          style: TextStyle(fontSize: ss.width*.04,
+                                            fontWeight: FontWeight.w300),))
                   ],)),
 
 
