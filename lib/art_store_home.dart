@@ -92,7 +92,7 @@ class _ArtStoreHomeState extends State<ArtStoreHome> {
                           padEnds: false,
                           viewportFraction: 0.69,
                           // aspectRatio: .5,
-                          height: ss.height * .63,
+                          height: ss.height * .6,
                           initialPage: 1,
                         ),
                       ),

@@ -56,7 +56,9 @@ class CarouselItem extends StatelessWidget {
               ],)),
 
               MaterialButton(
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.of(context).push(ArtDetailsPage());
+                  },
                   minWidth: ss.width * .16,
                   padding: EdgeInsets.all(0.0),
                   child:
@@ -67,7 +69,7 @@ class CarouselItem extends StatelessWidget {
                       color:g_accent_color,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.elliptical(ss.width * .08, ss.width * .07),
-                        topRight: Radius.circular(ss.width * .05),
+                        topRight: Radius.circular(ss.width * .025),
                         bottomLeft: Radius.circular(ss.width * .025),
                         bottomRight: Radius.circular(ss.width * .05),
                          ),
