@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:art_store_ui/as_globals.dart';
-
+import 'package:art_store_ui/art_details_page.dart';
 
 
 class CarouselItem extends StatelessWidget {
@@ -57,7 +57,9 @@ class CarouselItem extends StatelessWidget {
 
               MaterialButton(
                   onPressed: (){
-                    Navigator.of(context).push(ArtDetailsPage());
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder:(context) =>
+                        ArtDetailsPage(as_item: art_store_item)));
                   },
                   minWidth: ss.width * .16,
                   padding: EdgeInsets.all(0.0),
