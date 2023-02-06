@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:art_store_ui/as_globals.dart';
 import 'package:art_store_ui/carousel_item.dart';
 
@@ -14,11 +15,12 @@ class _ArtStoreHomeState extends State<ArtStoreHome> {
 
   // CarouselController buttonCarouselController = CarouselController();
   List<Widget> carousel_items = [
-    CarouselItem(art_item_1),
-    CarouselItem(art_item_2),
-    CarouselItem(art_item_3),
-    CarouselItem(art_item_4)
+    CarouselItem(art_store_item: art_store_items[0],),
+    CarouselItem(art_store_item: art_store_items[1],),
+    CarouselItem(art_store_item: art_store_items[2],),
+    CarouselItem(art_store_item: art_store_items[3],)
   ];
+
   @override
   Widget build(BuildContext context) {
     ss = MediaQuery.of(context).size;
@@ -60,9 +62,11 @@ class _ArtStoreHomeState extends State<ArtStoreHome> {
          options: CarouselOptions(
            autoPlay: false,
            enlargeCenterPage: true,
-           viewportFraction: 0.9,
-           aspectRatio: 2.0,
-           initialPage: 2,
+           padEnds: false,
+           // viewportFraction: 0.9,
+           // aspectRatio: .5,
+            height: ss.height *.66,
+           initialPage: 1,
          ),
        )
 

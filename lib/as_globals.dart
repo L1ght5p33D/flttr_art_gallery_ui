@@ -9,7 +9,25 @@ List<Map> art_store_items = [
     "short_desc": "A unique look at the universe and everything in it",
     "image_path": "assets/images/universe.png",
     "reaction_users": ["user1", "user2", "user3", "user4"]
-  }  
+  },
+  {
+    "main_title": "Universe",
+    "short_desc": "A unique look at the universe and everything in it",
+    "image_path": "assets/images/universe.png",
+    "reaction_users": ["user1", "user2", "user3", "user4"]
+  },
+  {
+    "main_title": "Universe",
+    "short_desc": "A unique look at the universe and everything in it",
+    "image_path": "assets/images/universe.png",
+    "reaction_users": ["user1", "user2", "user3", "user4"]
+  },
+  {
+    "main_title": "Universe",
+    "short_desc": "A unique look at the universe and everything in it",
+    "image_path": "assets/images/universe.png",
+    "reaction_users": ["user1", "user2", "user3", "user4"]
+  }
 ] ;
 
 Map user_profilepic_data = {
