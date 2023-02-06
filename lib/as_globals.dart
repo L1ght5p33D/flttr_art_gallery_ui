@@ -18,7 +18,7 @@ List<Map> art_store_items = [
   },
   {
     "main_title": "Flower Heart",
-    "short_desc": "The author of this flower painting took a bouquet and shaped the heart. He decorated the background with beautiful abstraction in purple shades with the addition of gold leaf. All together the elements create a romantic painting that looks elegant and festive and can complement any wall.",
+    "short_desc": "The author of this flower painting took a bouquet and shaped the heart. He decorated the background with beautiful abstraction in purple shades with the addition of gold leaf. All together the elements create a romantic painting that looks elegant and festive and can complement any wall. The author of this flower painting took a bouquet and shaped the heart. He decorated the background with beautiful abstraction in purple shades with the addition of gold leaf. All together the elements create a romantic painting that looks elegant and festive and can complement any wall.",
     "image_path": "assets/images/universe.png",
     "artist": "NaturesLove",
     "reaction_users": ["user1", "user2", "user3", "user4"],

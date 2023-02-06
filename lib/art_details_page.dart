@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:art_store_ui/as_globals.dart';
+import 'package:flutter/rendering.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:flutter_expandable_text/flutter_expandable_text.dart';
 
@@ -110,12 +111,14 @@ class _ArtDetailsPageState extends State<ArtDetailsPage> {
 
         Container(child:Text(  "\$" + widget.as_item["price"]))
       ]),
-
-        ExpandableText(
+          Flexible(
+            // color: Colors.blue,
+            // height: ss.width * .15,
+        child: ExpandableText(
             widget.as_item["short_desc"],
           style: TextStyle(
               fontSize: ss.width*.03,
-              color: Colors.white
+              color: Colors.black
           ),
           trimType: TrimType.lines,
           trim: 3,
@@ -123,31 +126,42 @@ class _ArtDetailsPageState extends State<ArtDetailsPage> {
           readMoreText: 'Tap for more',
           linkTextStyle:  TextStyle(
               color: Colors.deepOrange,
-              fontSize: ss.width*.03,
+              fontSize: ss.width*.04,
               fontWeight: FontWeight.bold),
           onLinkPressed: (expanded) {
               setState(() {
                 var textExpanded=true;
               });
           },
-        ),
+        )),
 
+          Container(
+            color: Colors.green,
+            width: ss.width ,
 
-      Row(children: [
-        ClipRRect(borderRadius: BorderRadius.all(Radius.circular(ss.width*.1),),
+      child: Row(children: [
+        ClipRRect(borderRadius: BorderRadius.all(Radius.circular(ss.width*.08),),
         child:Image.asset(widget.as_item["pp_path"],
-                          width: ss.width*.2,
-                          height: ss.width*.2,
+                          width: ss.width*.16,
+                          height: ss.width*.16,
                           fit: BoxFit.contain
         )),
 
-        Container(width: ss.width * .66,
-                  child:Column(children: [
-                    Text(widget.as_item["artist"]),
+        Container(
+            color: Colors.red,
+            width: ss.width * .45,
+                  child:Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        color:Colors.red,
+                        child:
+                    Text(widget.as_item["artist"]),),
                     Text(widget.as_item["num_arts"] + " contributions")
                   ],)),
 
-          Container(width: ss.width*.2,
+        Container(width: ss.width*.38,
               decoration: BoxDecoration(
                 color: g_accent_color
               ),
@@ -161,7 +175,7 @@ class _ArtDetailsPageState extends State<ArtDetailsPage> {
                         Icon(Icons.arrow_right)
                       ]),
                     )))
-                  ])
+                  ]))
       ],))
 
     ])
