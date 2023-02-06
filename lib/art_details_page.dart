@@ -46,8 +46,6 @@ class _ArtDetailsPageState extends State<ArtDetailsPage> {
                   height: ss.width,
                 width: ss.width,
                 child:
-
-
                 PageView.builder(
                       padEnds: false,
                       controller: page_controller,
@@ -88,8 +86,49 @@ class _ArtDetailsPageState extends State<ArtDetailsPage> {
                 dotColor:  g_accent_color,
                 activeDotColor:  Colors.deepOrange
           )
-        )
+        ),
+      
+      Row(children:[
+        Column(children:[
+      Container(child:Text(widget.as_item["main_title"])),
+        Container(child:Text(widget.as_item["artist"]))
+        ]),
 
-    ],))));
+        Container(child:Text(  "\$" + widget.as_item["price"]))
+      ]),
+
+      Container(child:Text(widget.as_item["short_desc"])),
+
+      Row(children: [
+        ClipRRect(borderRadius: BorderRadius.all(Radius.circular(ss.width*.1),),
+        child:Image.asset(widget.as_item["pp_path"],
+                          width: ss.width*.2,
+                          height: ss.width*.2,
+                          fit: BoxFit.contain
+        )),
+
+        Container(width: ss.width * .66,
+                  child:Column(children: [
+                    Text(widget.as_item["artist"]),
+                    Text(widget.as_item["num_arts"] + " contributions")
+                  ],)),
+
+          Container(width: ss.width*.2,
+              decoration: BoxDecoration(
+                color: g_accent_color
+              ),
+              child:
+                    MaterialButton(
+                      onPressed: (){},
+                      child:
+                      Center(child:
+                        Row(children: [
+                        Text("Buy Now"),
+                        Icon(Icons.arrow_right)
+                      ]),
+                    )))
+                  ])
+      ],)
+    )));
   }
 }
