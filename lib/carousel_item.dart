@@ -51,7 +51,8 @@ class CarouselItem extends StatelessWidget {
                       style: TextStyle(fontSize: ss.width *.04),
                 ),
                 Text(art_store_item["short_desc"],
-                    style: TextStyle(fontSize: ss.width *.03)),
+                    style: TextStyle(fontSize: ss.width *.03,
+                                      overflow: TextOverflow.ellipsis)),
                 ReactionsWidget(users:art_store_item["reaction_users"])
               ],)),
 

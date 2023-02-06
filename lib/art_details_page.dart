@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:art_store_ui/as_globals.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:flutter_expandable_text/flutter_expandable_text.dart';
 
 class ArtDetailsPage extends StatefulWidget {
    ArtDetailsPage({Key? key, required this.as_item}) : super(key: key);
@@ -19,15 +20,18 @@ class _ArtDetailsPageState extends State<ArtDetailsPage> {
   @override
   Widget build(BuildContext context) {
 
-
+      double toolbar_height = ss.height*.08;
+      double page_view_height = ss.width *.88;
     return SafeArea(child:Scaffold(body:
     Container(width: ss.width,
               height: ss.height,
     child:Column(children: [
-      Row(
+
+    Container(
+        height: toolbar_height,
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-
           Container(
             width:ss.width*.14,
         height: ss.width*.14,
@@ -37,13 +41,13 @@ class _ArtDetailsPageState extends State<ArtDetailsPage> {
             height: ss.width*.14,
             child:
           IconButton(onPressed: (){Navigator.pop(context);}, icon: Icon(Icons.star_outline)))
-      ],),
+      ],)),
 
 
           SingleChildScrollView(
               child: Container(
-                  // color:Colors.red,
-                  height: ss.width,
+                  color:Colors.red,
+                  height: page_view_height,
                 width: ss.width,
                 child:
                 PageView.builder(
@@ -72,23 +76,33 @@ class _ArtDetailsPageState extends State<ArtDetailsPage> {
                     )
                 )),
 
+    Container(
+        height: ss.width * .04,
+        child:Center(child:
       SmoothPageIndicator(
           // activeIndex: art_image_chosen_idx,
           count:  3,
           controller: page_controller,
           axisDirection: Axis.horizontal,
           effect: ExpandingDotsEffect(
-                radius:  4.0,
-                dotWidth:  5.0,
-                dotHeight:  5.0,
+                radius:  ss.width* .02,
+                dotWidth:  ss.width * .02,
+                dotHeight:  ss.width * .02,
+                spacing: ss.width * .03,
                 paintStyle:  PaintingStyle.stroke,
                 strokeWidth:  1.5,
                 dotColor:  g_accent_color,
                 activeDotColor:  Colors.deepOrange
           )
-        ),
-      
-      Row(children:[
+        ))),
+
+      Container(
+          height: ss.height - toolbar_height - page_view_height  - ss.width * .12,
+          child:
+      ListView(children:[
+      Row(
+          mainAxisAlignment:MainAxisAlignment.spaceBetween,
+          children:[
         Column(children:[
       Container(child:Text(widget.as_item["main_title"])),
         Container(child:Text(widget.as_item["artist"]))
@@ -97,7 +111,27 @@ class _ArtDetailsPageState extends State<ArtDetailsPage> {
         Container(child:Text(  "\$" + widget.as_item["price"]))
       ]),
 
-      Container(child:Text(widget.as_item["short_desc"])),
+        ExpandableText(
+            widget.as_item["short_desc"],
+          style: TextStyle(
+              fontSize: ss.width*.03,
+              color: Colors.white
+          ),
+          trimType: TrimType.lines,
+          trim: 3,
+          readLessText: 'Less',
+          readMoreText: 'Tap for more',
+          linkTextStyle:  TextStyle(
+              color: Colors.deepOrange,
+              fontSize: ss.width*.03,
+              fontWeight: FontWeight.bold),
+          onLinkPressed: (expanded) {
+              setState(() {
+                var textExpanded=true;
+              });
+          },
+        ),
+
 
       Row(children: [
         ClipRRect(borderRadius: BorderRadius.all(Radius.circular(ss.width*.1),),
@@ -128,7 +162,10 @@ class _ArtDetailsPageState extends State<ArtDetailsPage> {
                       ]),
                     )))
                   ])
-      ],)
+      ],))
+
+    ])
+
     )));
   }
 }
