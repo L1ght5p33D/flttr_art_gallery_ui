@@ -17,6 +17,7 @@ class _ArtDetailsPageState extends State<ArtDetailsPage> {
 
   // int art_image_chosen_idx = 0;
   PageController page_controller = PageController();
+  bool is_favorite = false;
 
   @override
   Widget build(BuildContext context) {
@@ -43,9 +44,10 @@ class _ArtDetailsPageState extends State<ArtDetailsPage> {
             child:
           IconButton(onPressed: (){
             setState(() {
-              is_favorite = true;
+              is_favorite = !is_favorite;
             });
-          }, icon: Icon(Icons.star_outline)))
+          }, icon: is_favorite==false?Icon(Icons.star_outline):
+          Icon(Icons.star,color: Colors.yellow[700],)))
       ],)),
 
 
@@ -96,7 +98,7 @@ class _ArtDetailsPageState extends State<ArtDetailsPage> {
                 paintStyle:  PaintingStyle.stroke,
                 strokeWidth:  1.5,
                 dotColor:  g_accent_color,
-                activeDotColor:  Colors.deepOrange
+                activeDotColor:  Colors.tealAccent[700]!
           )
         ))),
       Padding(padding:EdgeInsets.all(ss.width*.02),
@@ -166,6 +168,7 @@ class _ArtDetailsPageState extends State<ArtDetailsPage> {
 
         Container(width: ss.width*.38,
               decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(ss.width*.055),
                 color: g_accent_color
               ),
               child:

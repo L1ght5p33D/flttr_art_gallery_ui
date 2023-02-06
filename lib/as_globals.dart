@@ -9,7 +9,7 @@ Color g_icon_inactive_color = Colors.black54;
 List<Map> art_store_items = [
   {
     "main_title": "Universe",
-    "short_desc": "A unique look at a piece of our universe.",
+    "short_desc": "A unique look at just a small piece of our universe. If you let your mind open to the wornders of the natural world, it becomes an entrypoint to becoming something more than you though possible",
     "image_path": "assets/images/universe.png",
     "artist": "Star Gazer",
     "reaction_users": ["user3", "user2", "user5", "user4"],
@@ -32,7 +32,7 @@ List<Map> art_store_items = [
     "short_desc": "Artist Mario Dubsky was born in London, England on 14 May 1939 to German-speaking Viennese parents with both Jewish and Slavic roots, who had converted to Christianity. He entered the Slade School of Fine Art at the age of 17 and was mentored by Dorothy Mead, a mature student who had studied with Bomberg and who passed on what Dubsky referred to as ‘Bombergian precepts’. Dubsky's work in this period included energetic charcoals and thickly painted canvases.",
     "image_path": "assets/images/purple_abstract.png",
     "artist": "MarioDubsky",
-    "reaction_users": ["user5", "user2", "user3", "user1"],
+    "reaction_users": ["user5", "user4", "user3", "user2"],
     "num_arts": "4",
     "pp_path": "assets/images/user4_pp.png",
     "price": "3500"

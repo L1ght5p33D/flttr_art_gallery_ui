@@ -129,7 +129,7 @@ class ReactionsWidget extends StatelessWidget {
       );
       pic_idx +=1;
       }
-      if (pic_idx == 3){
+      else if (pic_idx == 3){
         positioned_reaction_profile_pics.add(
             Positioned(
                 top: ss.width*.03,
@@ -158,6 +158,8 @@ class ReactionsWidget extends StatelessWidget {
                 ))
         );
         pic_idx +=1;
+      }else {
+        pic_idx += 1;
       }
     });
 
