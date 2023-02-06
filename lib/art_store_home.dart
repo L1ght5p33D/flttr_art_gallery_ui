@@ -49,12 +49,14 @@ class _ArtStoreHomeState extends State<ArtStoreHome> {
                               onPressed: () {
                                 print("menu press");
                               },
-                              icon: Icon(Icons.menu)),
+                              icon: Icon(Icons.menu,
+                                          color: g_icon_inactive_color,)),
                           IconButton(
                               onPressed: () {
                                 print("menu press");
                               },
-                              icon: Icon(Icons.shopping_basket_outlined))
+                              icon: Icon(Icons.shopping_basket_outlined,
+                                          color: g_icon_inactive_color))
                         ],
                       )),
                       Padding(padding: EdgeInsets.all(ss.width*.06)),
@@ -62,19 +64,22 @@ class _ArtStoreHomeState extends State<ArtStoreHome> {
                         "View our amazing collection!",
                         style: TextStyle(fontSize: ss.width * .07),
                       ),
+                      Padding(padding: EdgeInsets.all(ss.width*.01)),
                       Text(
                           "Our art is sourced from creators all over the world. We have different style for everyone",
                           style: TextStyle(
                               fontSize: ss.width * .036,
                               fontWeight: FontWeight.w300)),
+                      Padding(padding: EdgeInsets.all(ss.width*.02)),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
                             "Popular",
-                            style: TextStyle(fontSize: ss.width * .06),
+                            style: TextStyle(fontSize: ss.width * .05,
+                                              fontWeight: FontWeight.w500),
                           ),
-                          Text(
+                         const Text(
                             "See all",
                             style: TextStyle(
                                 fontSize: 12.0,
@@ -92,7 +97,7 @@ class _ArtStoreHomeState extends State<ArtStoreHome> {
                           padEnds: false,
                           viewportFraction: 0.69,
                           // aspectRatio: .5,
-                          height: ss.height * .6,
+                          height: ss.height * .59,
                           initialPage: 1,
                         ),
                       ),
@@ -112,28 +117,28 @@ class _ArtStoreHomeState extends State<ArtStoreHome> {
                       GNav(
                             rippleColor: Colors.grey[300]!,
                             hoverColor: Colors.grey[100]!,
-                            gap: 8,
-                            activeColor: Colors.black,
+                            gap: 2,
+                            activeColor: Colors.white,
                             iconSize: 24,
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 12),
-                            duration: Duration(milliseconds: 400),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 6, vertical: 9),
+                            duration: const Duration(milliseconds: 400),
                             tabBackgroundColor: g_accent_color,
-                            color: Colors.black,
-                            tabs: [
+                            color: g_icon_inactive_color,
+                            tabs: const [
                               GButton(
                                 icon: LineIcons.home,
                                 text: 'Home',
                               ),
                               GButton(
-                                icon: LineIcons.heart,
-                                text: 'Likes',
+                                icon: LineIcons.star,
+                                text: 'Favorites',
                               ),
-                              GButton(
-                                icon: LineIcons.search,
-                                text: 'Search',
+                               GButton(
+                                icon: Icons.notifications_none,
+                                text: 'Notifications',
                               ),
-                              GButton(
+                               GButton(
                                 icon: LineIcons.user,
                                 text: 'Profile',
                               ),

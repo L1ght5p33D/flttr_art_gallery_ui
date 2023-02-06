@@ -41,13 +41,16 @@ class _ArtDetailsPageState extends State<ArtDetailsPage> {
             width:ss.width*.14,
             height: ss.width*.14,
             child:
-          IconButton(onPressed: (){Navigator.pop(context);}, icon: Icon(Icons.star_outline)))
+          IconButton(onPressed: (){
+            setState(() {
+              is_favorite = true;
+            });
+          }, icon: Icon(Icons.star_outline)))
       ],)),
 
 
           SingleChildScrollView(
               child: Container(
-                  color:Colors.red,
                   height: page_view_height,
                 width: ss.width,
                 child:
@@ -96,9 +99,10 @@ class _ArtDetailsPageState extends State<ArtDetailsPage> {
                 activeDotColor:  Colors.deepOrange
           )
         ))),
-
+      Padding(padding:EdgeInsets.all(ss.width*.02),
+      child:
       Container(
-          height: ss.height - toolbar_height - page_view_height  - ss.width * .12,
+          height: ss.height - toolbar_height - page_view_height  - ss.width * .13 - ss.width* .03,
           child:
       ListView(children:[
       Row(
@@ -111,6 +115,7 @@ class _ArtDetailsPageState extends State<ArtDetailsPage> {
 
         Container(child:Text(  "\$" + widget.as_item["price"]))
       ]),
+        Padding(padding:EdgeInsets.all(ss.width*.02)),
           Flexible(
             // color: Colors.blue,
             // height: ss.width * .15,
@@ -125,8 +130,8 @@ class _ArtDetailsPageState extends State<ArtDetailsPage> {
           readLessText: 'Less',
           readMoreText: 'Tap for more',
           linkTextStyle:  TextStyle(
-              color: Colors.deepOrange,
-              fontSize: ss.width*.04,
+              color: g_accent_color,
+              fontSize: ss.width*.03,
               fontWeight: FontWeight.bold),
           onLinkPressed: (expanded) {
               setState(() {
@@ -134,9 +139,8 @@ class _ArtDetailsPageState extends State<ArtDetailsPage> {
               });
           },
         )),
-
+        Padding(padding:EdgeInsets.all(ss.width*.02)),
           Container(
-            color: Colors.green,
             width: ss.width ,
 
       child: Row(children: [
@@ -148,18 +152,17 @@ class _ArtDetailsPageState extends State<ArtDetailsPage> {
         )),
 
         Container(
-            color: Colors.red,
-            width: ss.width * .45,
+            width: ss.width * .42,
                   child:Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        color:Colors.red,
                         child:
                     Text(widget.as_item["artist"]),),
                     Text(widget.as_item["num_arts"] + " contributions")
                   ],)),
+
 
         Container(width: ss.width*.38,
               decoration: BoxDecoration(
@@ -171,12 +174,17 @@ class _ArtDetailsPageState extends State<ArtDetailsPage> {
                       child:
                       Center(child:
                         Row(children: [
-                        Text("Buy Now"),
-                        Icon(Icons.arrow_right)
+                        Text("Buy Now",
+                              style: TextStyle(color:Colors.white),
+                        ),
+                        Icon(Icons.arrow_right,
+                          color:Colors.white
+
+                        )
                       ]),
                     )))
                   ]))
-      ],))
+      ],)))
 
     ])
 

@@ -47,9 +47,13 @@ class CarouselItem extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  Container(
+                      height: ss.width * .051,
+                      child:
                 Text(art_store_item["main_title"],
-                      style: TextStyle(fontSize: ss.width *.04),
-                ),
+                      style: TextStyle(fontSize: ss.width *.05,
+                                        fontWeight: FontWeight.w600),
+                )),
                 Text(art_store_item["short_desc"],
                     style: TextStyle(fontSize: ss.width *.03,
                                       overflow: TextOverflow.ellipsis)),
@@ -78,7 +82,9 @@ class CarouselItem extends StatelessWidget {
                          ),
                     ),
                     child:Icon(Icons.shopping_basket_outlined,
-                                            size:ss.width*.05)
+                                            size:ss.width*.06,
+                                            color: Colors.white,
+                    )
                   )
               )
 
@@ -97,11 +103,9 @@ class ReactionsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
 
     List<Widget> positioned_reaction_profile_pics = [];
-
     int pic_idx = 0;
 
     double react_pp_height = ss.width * .1;
-
     double ruser_pos_inc = react_pp_height * .4;
 
     users.forEach((user) {
