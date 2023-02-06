@@ -74,7 +74,7 @@ class _ArtStoreHomeState extends State<ArtStoreHome> {
                       ),
                       Padding(padding: EdgeInsets.all(ss.width*.01)),
                       Text(
-                          "Our art is sourced from creators all over the world. We have different style for everyone",
+                          "Our art is sourced from creators all over the world. We have different styles for everyone",
                           style: TextStyle(
                               fontSize: ss.width * .036,
                               fontWeight: FontWeight.w300)),

@@ -69,6 +69,11 @@ class ReactionsWidget extends StatelessWidget {
       }
     });
 
+      double reactions_width;
+      reactions_width = react_pp_height +  users.length * ruser_pos_inc ;
+      if (users.length >3){
+        reactions_width = ss.width*.24;
+      }
     return Container(
       width: ss.width * .5,
       height: ss.width * .2,
@@ -76,14 +81,19 @@ class ReactionsWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
-              width: ss.width * .2,
+              width: reactions_width,
               height: ss.width * .2,
               child:
               Stack(children: positioned_reaction_profile_pics,)),
-          Padding(
-              padding: EdgeInsets.only(bottom: react_pp_height * .5, left: ss.width*.03)
-              ,child:Text("Reactions",
-              style: TextStyle(fontSize: ss.width*.03)))
+
+      Padding(
+          padding: EdgeInsets.only(bottom: react_pp_height * .3,)
+          ,child:Icon(Icons.read_more,
+                  size: ss.width*.044,))
+          // Padding(
+          //     padding: EdgeInsets.only(bottom: react_pp_height * .3,)
+          //     ,child:Text("view reactions",
+          //     style: TextStyle(fontSize: ss.width*.025)))
         ],),
     );
   }
